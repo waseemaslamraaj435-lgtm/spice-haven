@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Spice Haven | Premium Pakistani Spices</title>
+
+<meta name="description" content="Buy premium Pakistani spices online. Fresh turmeric, cumin, cardamom and more.">
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#f4f4f4;
+}
+
+header{
+background:#8B4513;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+header input{
+padding:8px;
+border:none;
+border-radius:5px;
+}
+
+nav a{
+color:white;
+margin-left:15px;
+cursor:pointer;
+text-decoration:none;
+}
+
+.hero{
+height:350px;
+background:url(https://images.unsplash.com/photo-1596040033229-a9821ebd058d) center/cover;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:white;
+text-shadow:1px 1px 5px black;
+}
+
+.section{
+padding:40px;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.product{
+background:white;
+padding:15px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.product img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:5px;
+}
+
+.price{
+font-weight:bold;
+color:#8B4513;
+}
+
+button{
+background:#8B4513;
+color:white;
+border:none;
+padding:10px;
+width:100%;
+margin-top:10px;
+cursor:pointer;
+border-radius:5px;
+}
+
+#cart{
+position:fixed;
+right:20px;
+top:80px;
+background:white;
+padding:20px;
+width:260px;
+box-shadow:0 0 10px rgba(0,0,0,0.3);
+display:none;
+border-radius:10px;
+}
+
+.contact-box{
+background:white;
+padding:20px;
+max-width:500px;
+margin:auto;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+border-radius:10px;
+}
+
+.contact-box input,
+.contact-box textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+footer{
+background:#333;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<a href="https://wa.me/923064188541" target="_blank"
+style="position:fixed;bottom:20px;right:20px;z-index:999;">
+
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="60">
+
+</a>
+
+<div class="logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/2909/2909767.png" width="40">
+    Spice Haven
+</div>
+
+<input type="text" id="search" placeholder="Search spices..." onkeyup="searchProducts()">
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#products">Products</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+
+<a onclick="toggleCart()">🛒 Cart (<span id="cart-count">0</span>)</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Premium Pakistani Spices</h1>
+<p>Fresh • Organic • Authentic</p>
+
+</section>
+
+
+<section class="section" id="products">
+
+<h2>Our Spices</h2>
+
+<div class="products">
+
+<div class="product">
+<img src="https://images.pexels.com/photos/4198430/pexels-photo-4198430.jpeg">
+<h3>Turmeric</h3>
+<p>Pakistani food needs turmeric. It adds color, flavor and health benefits.</p>
+<div class="price">$4.99 | PKR 1300</div>
+<input type="number" id="q1" value="1" min="1">
+<button onclick="addToCart('Turmeric',4.99,'q1')">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://images.pexels.com/photos/10487762/pexels-photo-10487762.jpeg">
+<h3>Cumin</h3>
+<p>Cumin seeds add warm earthy flavor to Pakistani dishes.</p>
+<div class="price">$11.50 | PKR 3200</div>
+<input type="number" id="q2" value="1" min="1">
+<button onclick="addToCart('Cumin',11.50,'q2')">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://images.pexels.com/photos/10487768/pexels-photo-10487768.jpeg">
+<h3>Green Cardamom</h3>
+<p>Highly aromatic spice used in tea and desserts.</p>
+<div class="price">$36.99 | PKR 11000</div>
+<input type="number" id="q3" value="1" min="1">
+<button onclick="addToCart('Cardamom',36.99,'q3')">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://images.pexels.com/photos/7829483/pexels-photo-7829483.jpeg">
+<h3>Garam Masala</h3>
+<p>Traditional spice blend used in curries.</p>
+<div class="price">$13.49 | PKR 3650</div>
+<input type="number" id="q4" value="1" min="1">
+<button onclick="addToCart('Garam Masala',13.49,'q4')">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://images.pexels.com/photos/1008747/pexels-photo-1008747.jpeg">
+<h3>Cinnamon</h3>
+<p>Sweet aromatic spice used in desserts and drinks.</p>
+<div class="price">$8.49 | PKR 2500</div>
+<input type="number" id="q5" value="1" min="1">
+<button onclick="addToCart('Cinnamon',8.49,'q5')">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://images.pexels.com/photos/12142752/pexels-photo-12142752.jpeg">
+<h3>Cloves</h3>
+<p>Strong aromatic spice used in biryani and curry.</p>
+<div class="price">$18.49 | PKR 5500</div>
+<input type="number" id="q6" value="1" min="1">
+<button onclick="addToCart('Cloves',18.49,'q6')">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://images.pexels.com/photos/7829483/pexels-photo-7829483.jpeg">
+<h3>Black Cardamom</h3>
+<p>Smoky spice widely used in Pakistani dishes.</p>
+<div class="price">$44 | PKR 12500</div>
+<input type="number" id="q7" value="1" min="1">
+<button onclick="addToCart('Black Cardamom',44,'q7')">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://images.pexels.com/photos/16601542/pexels-photo-16601542.jpeg">
+<h3>Red Chilli</h3>
+<p>Hot chilli powder for spicy flavor.</p>
+<div class="price">$5.99 | PKR 1300</div>
+<input type="number" id="q8" value="1" min="1">
+<button onclick="addToCart('Red Chilli',5.99,'q8')">Add to Cart</button>
+</div>
+
+</div>
+</section>
+
+
+<section id="about" style="background:#fff7f0;padding:40px;text-align:center;">
+
+<h2>About Spice Haven</h2>
+
+<p style="max-width:700px;margin:auto;font-size:17px;">
+Spice Haven provides premium quality spices sourced from trusted farms in Pakistan. 
+Our goal is to bring authentic flavor, freshness, and traditional taste to every kitchen.
+
+</p>
+
+</section>
+
+
+<section id="contact" style="background:#f5f5f5;padding:40px;text-align:center;">
+
+<h2>Contact Us</h2>
+
+<div style="max-width:500px;margin:auto;background:white;padding:25px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+
+<input type="text" placeholder="Your Name" style="width:100%;padding:10px;margin:10px 0">
+
+<input type="email" placeholder="Your Email" style="width:100%;padding:10px;margin:10px 0">
+
+<textarea placeholder="Your Message" style="width:100%;padding:10px;margin:10px 0"></textarea>
+
+<button onclick="sendMessage()" style="background:#8B4513;color:white;padding:10px;width:100%;border:none;border-radius:5px;">
+Send Message
+</button>
+
+<p>Email: mwaseemaslam1@gmail.com</p>
+<p>Phone: +92 306 4188541</p>
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+<p>© 2026 Spice Haven. All rights reserved.</p>
+<p>Premium Quality Spices Since 1995</p>
+
+</footer>
+
+
+<div id="cart">
+
+<h3>Your Cart</h3>
+
+<ul id="cart-items"></ul>
+
+<p>Total: $<span id="cart-total">0</span></p>
+
+<button onclick="checkout()">Order via WhatsApp</button>
+
+</div>
+
+
+<script>
+let cart = [];
+let total = 0;
+
+// Toggle Cart visibility
+function toggleCart() {
+    let cartBox = document.getElementById("cart");
+    cartBox.style.display = cartBox.style.display === "block" ? "none" : "block";
+}
+
+// Add product to cart
+function addToCart(name, price, qtyId) {
+    let qty = parseInt(document.getElementById(qtyId).value) || 1; // default 1 if empty
+    let subtotal = price * qty;
+
+    // Push product to cart
+    cart.push({ name, price, qty, subtotal });
+    total += subtotal;
+
+    // Update cart count & total
+    document.getElementById("cart-count").innerText = cart.length;
+    document.getElementById("cart-total").innerText = total.toFixed(2);
+
+    // Create cart item element with remove button
+    let li = document.createElement("li");
+    li.innerHTML = `${name} x${qty} = $${subtotal.toFixed(2)} 
+                    <button onclick="removeItem(this, ${subtotal})">❌ Remove</button>`;
+    document.getElementById("cart-items").appendChild(li);
+}
+
+// Remove item from cart
+function removeItem(button, subtotal) {
+    // Remove item from cart array
+    total -= subtotal;
+    cartCountUpdate();
+    
+    button.parentElement.remove(); // Remove the li element
+}
+
+// Update cart count & total
+function cartCountUpdate() {
+    document.getElementById("cart-count").innerText = cart.length;
+    document.getElementById("cart-total").innerText = total.toFixed(2);
+}
+
+// WhatsApp checkout
+function checkout() {
+    if(cart.length === 0){
+        alert("Your cart is empty!");
+        return;
+    }
+    let message = "Order:%0A";
+    cart.forEach(item => {
+        message += `${item.name} x${item.qty} = $${item.subtotal.toFixed(2)}%0A`;
+    });
+    window.open("https://wa.me/923064188541?text=" + message);
+}
+
+// Contact form send message
+function sendMessage() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+    alert(`Thank you ${name}! Your message has been sent.`);
+}
+
+// Product search
+function searchProducts() {
+    let input = document.getElementById("search-input").value.toLowerCase();
+    let products = document.querySelectorAll(".product-card");
+    products.forEach(product => {
+        let name = product.querySelector(".product-name").innerText.toLowerCase();
+        if(name.includes(input)){
+            product.style.display = "block";
+        } else {
+            product.style.display = "none";
+        }
+    });
+}
+</script>
+
+</body>
+</html>
+
